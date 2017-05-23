@@ -1,0 +1,40 @@
+.big-login-form-container {
+    max-width: 480px;
+    margin: 2em auto;
+}
+
+.answers-form {
+    margin-bottom: 1.5em;
+}
+
+.answers-form__list {
+    margin-bottom: 0.5em;
+}
+
+.profile {
+    float: right;
+}
+
+.profile__name {
+    font-size: 18px;
+    font-weight: normal;
+    margin-right: 4px;
+}
+
+.results-table {
+}
+
+.results-table td, .results-table th {
+    padding: 4px;
+    border: 1px solid #888;
+}
+
+.test-in-list-title {
+    font-size: 120%;
+}
+
+.global-back-btn {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+}

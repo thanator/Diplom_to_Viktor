@@ -1,0 +1,28 @@
+{{#> _layout.html.hbs }}
+
+<div class="container">
+    <h1>
+        Главная страница
+        {{> _profile.html.hbs }}
+    </h1>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">Действия</div>
+        <div class="panel-body">
+            <p><a href="/tests">Пройти тестирование</a></p>
+            <p><a href="/rules">Посмотреть ПДД</a></p>
+        </div>
+    </div>
+
+    {{#if is_admin}}
+        <div class="panel panel-danger">
+            <div class="panel-heading">Раздел администратора</div>
+            <div class="panel-body">
+                <p><a href="/admin/tests">Тестирования</a></p>
+                <p><a href="/admin/users">Ученики</a></p>
+            </div>
+        </div>
+    {{/if}}
+</div>
+
+{{/_layout.html.hbs}}

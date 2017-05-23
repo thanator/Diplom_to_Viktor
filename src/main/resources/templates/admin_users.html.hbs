@@ -1,0 +1,47 @@
+{{#> _layout.html.hbs }}
+
+<div class="container">
+    <h1>
+        {{page_title}}
+        {{> _profile.html.hbs }}
+    </h1>
+
+    <table class="table table-striped">
+        <tr>
+            <th>№</th>
+            <th>ФИО</th>
+            <th>Логин</th>
+            <th>Дата рождения</th>
+            <th>Пол</th>
+            <th>Группа</th>
+            {{#if with_results}}
+                <th>Результат</th>
+            {{/if}}
+            <th></th>
+        </tr>
+        {{#each users}}
+            <tr>
+                <td>{{this.index}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.login}}</td>
+                <td>{{this.birthday}}</td>
+                <td>{{this.sex}}</td>
+                <td>{{this.group}}</td>
+                {{#if ../with_results}}
+                    <td>{{this.result}}</td>
+                {{/if}}
+                <td>
+                    {{#if ../with_results}}
+                        <a href="/admin/tests/{{../test.id}}/users/{{this.login}}">Результаты</a>
+                    {{/if}}
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+
+    {{#unless with_results}}
+        <a href="/admin/users/new" class="btn btn-default">Добавить пользователя</a>
+    {{/unless}}
+</div>
+
+{{/_layout.html.hbs}}

@@ -1,0 +1,38 @@
+{{#> _layout.html.hbs }}
+
+<div class="container">
+    <h1>
+        {{page_title}}
+        {{> _profile.html.hbs }}
+    </h1>
+
+    <h2>Билет №{{task.index}} из {{test.task_count}}</h2>
+
+    <form class="form-horizontal" method="post" action="/tests/{{test.id}}/tasks/{{task.id}}">
+        <p>{{task.text}}</p>
+
+        {{#if task.image}}
+            <img class="img-responsive" src="{{task.image}}">
+        {{/if}}
+
+        <div class="answers-form">
+            <div class="answers-form__list">
+                {{#each task.answers}}
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="answer_check_{{this.id}}"> <span class="answer-text">{{this.text}}</span>
+                        </label>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-success">Ответить</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{{/_layout.html.hbs}}

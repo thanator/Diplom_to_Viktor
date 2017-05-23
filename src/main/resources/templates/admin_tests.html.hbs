@@ -1,0 +1,30 @@
+{{#> _layout.html.hbs }}
+
+<div class="container">
+    <h1>
+        {{page_title}}
+        {{> _profile.html.hbs }}
+    </h1>
+
+    {{#each tests}}
+        <div class="panel panel-default">
+            <div class="panel-heading">{{this.name}}</div>
+            <div class="panel-body">
+                <p>
+                    <a href="/admin/tests/{{this.id}}/tasks">{{this.task_count}} билетов</a>
+                    |
+                    <a href="/admin/tests/{{this.id}}/tasks/new">Создать</a>
+                </p>
+                <p>
+                    <a href="/admin/tests/{{this.id}}/users">{{this.user_count}} пользователей прошли этот тест</a>
+                </p>
+            </div>
+        </div>
+    {{/each}}
+
+    <p>
+        <a href="/admin/tests/new" class="btn btn-default">Добавить новое тестирование</a>
+    </p>
+</div>
+
+{{/_layout.html.hbs}}

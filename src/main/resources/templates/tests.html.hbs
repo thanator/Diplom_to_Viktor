@@ -1,0 +1,23 @@
+{{#> _layout.html.hbs }}
+
+<div class="container">
+    <h1>
+        {{page_title}}
+        {{> _profile.html.hbs }}
+    </h1>
+
+    {{#each tests}}
+        <div class="panel panel-default">
+            <div class="panel-heading test-in-list-title">{{this.name}}</div>
+            <div class="panel-body">
+                {{#if is_passed}}
+                    <a href="/tests/{{this.id}}/results" class="btn btn-default">Посмотреть результаты</a>
+                {{else}}
+                    <a href="/tests/{{this.id}}" class="btn btn-success">Пройти</a>
+                {{/if}}
+            </div>
+        </div>
+    {{/each}}
+</div>
+
+{{/_layout.html.hbs}}

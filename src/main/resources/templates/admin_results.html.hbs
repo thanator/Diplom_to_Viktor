@@ -1,0 +1,71 @@
+{{#> _layout.html.hbs }}
+
+<div class="container">
+    <h1>
+        {{page_title}}
+        {{> _profile.html.hbs }}
+    </h1>
+
+    <table class="table table-stripped table-bordered">
+        <tr>
+            {{#each tasks}}
+                <th>{{this.index}}</th>
+            {{/each}}
+            <th>Итог</th>
+        </tr>
+        <tr>
+            {{#each tasks}}
+                <td>
+                    {{#if this.is_passed}}
+                        +
+                    {{else}}
+                        –
+                    {{/if}}
+                </td>
+            {{/each}}
+            <td>{{result}}</td>
+        </tr>
+    </table>
+
+    {{#each tasks}}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div>
+                    {{this.text}}
+                </div>
+
+                <table class="results-table">
+                    <caption>Ответы</caption>
+                    <tr>
+                        <th>Вариант ответа</th>
+                        <th>Правильно</th>
+                        <th>Выбрано</th>
+                    </tr>
+                    {{#each answers}}
+                    <tr>
+                        <td>
+                            {{this.text}}
+                        </td>
+                        <td>
+                            {{#if this.is_right}}
+                                +
+                            {{else}}
+                                –
+                            {{/if}}
+                        </td>
+                        <td>
+                            {{#if this.is_checked}}
+                                +
+                            {{else}}
+                                –
+                            {{/if}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </div>
+        </div>
+    {{/each}}
+</div>
+
+{{/_layout.html.hbs}}
